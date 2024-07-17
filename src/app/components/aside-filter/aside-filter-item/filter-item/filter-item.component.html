@@ -1,0 +1,12 @@
+<li class="flex flex-row items-center pl-5 mb-5 gap-x-2.5">
+  <input
+    [id]="filterItem.filterItemName"
+    type="checkbox"
+    class="size-4 bg-transparent rounded-sm active:bg-main-purple active:outline-none checked:bg-main-purple focus:ring-0"
+  />
+  <label
+    [for]="filterItem.filterItemName"
+    class="flex items-center w-full text-sm text-gray-900 transition duration-75 rounded-lg group dark:text-white dark:hover:bg-gray-700"
+    >{{ filterItem.filterItemName }}</label
+  >
+</li>

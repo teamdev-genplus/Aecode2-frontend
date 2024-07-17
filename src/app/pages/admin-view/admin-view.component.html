@@ -1,0 +1,23 @@
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg w-[1440px]">
+  <div class="md:grid-cols-[1fr_3fr] flex flex-row bg-white">
+    <app-side-bar (callTable)="getCallTable($event)" />
+
+    <div class="p-4 w-full">
+      @switch (callTable) { @case ("UsersTable"){
+      <app-user />
+      } @case ("RolesTable"){
+      <app-role />
+      } @case ("CurrenciesTable"){
+      <app-currency />
+      } @case ("PlansTable"){
+      <app-plan />
+      } @case ("ProgLanguagesTable"){
+      <app-prog-language />
+      } @case ("SoftwaresTable"){
+      <app-software />
+      } @case ("TagsTable"){
+      <app-tag />
+      } }
+    </div>
+  </div>
+</div>

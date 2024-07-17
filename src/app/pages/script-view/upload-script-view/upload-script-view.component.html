@@ -1,0 +1,90 @@
+<app-script-form />
+<table
+  class="w-full text-xs text-left rtl:text-right text-gray-500 dark:text-gray-400 mt-10 mb-52"
+>
+  <thead
+    class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400"
+  >
+    <tr>
+      <th scope="col" class="px-6 py-3">id_script</th>
+      <th scope="col" class="px-6 py-3">id_profile</th>
+      <th scope="col" class="px-6 py-3">id_software</th>
+      <th scope="col" class="px-6 py-3">id_proglang</th>
+      <th scope="col" class="px-6 py-3">id_tag</th>
+      <th scope="col" class="px-6 py-3">id_currency</th>
+      <th scope="col" class="px-6 py-3">id_plan</th>
+      <th scope="col" class="px-6 py-3">script_name</th>
+      <th scope="col" class="px-6 py-3">script_file</th>
+      <th scope="col" class="px-6 py-3">script_multimedia</th>
+      <th scope="col" class="px-6 py-3">script_description</th>
+      <th scope="col" class="px-6 py-3">script_price</th>
+      <th scope="col" class="px-6 py-3">script_date</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (item of scriptList; track item.id_script) {
+    <tr
+      class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600"
+    >
+      <th
+        scope="row"
+        class="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
+      >
+        {{ item.id_script }}
+      </th>
+      <td class="px-6 py-4">{{ item.profile.profile_Fullname }}</td>
+
+      <td class="px-6 py-4">
+        @for (item of item.software; track item.id_software) {
+        <p>{{ item.software_name }}</p>
+        }
+      </td>
+
+      <td class="px-6 py-4">
+        @for (item of item.proglang; track item.id_proglang) {
+        <p>{{ item.proglang_name }}</p>
+
+        }
+      </td>
+
+      <td class="px-6 py-4">
+        @for (item of item.tag; track item.id_tag) {
+        <p>{{ item.tag_name }}</p>
+        }
+      </td>
+
+      <td class="px-6 py-4">{{ item.currency.currency_name }}</td>
+      <td class="px-6 py-4">{{ item.plan.plan_name }}</td>
+      <td class="px-6 py-4">{{ item.script_name }}</td>
+      <td class="px-6 py-4">
+        <img [src]="item.script_file" alt="" class="size-10" />
+        <p>{{ item.script_file }}</p>
+      </td>
+      <td class="px-6 py-4">
+        @for (item of item.script_multimedia; track item) {
+        <img [src]="item" alt="" class="size-10" />
+        <p>{{ item }}</p>
+        }
+      </td>
+      <td class="px-6 py-4">{{ item.script_description }}</td>
+      <td class="px-6 py-4">{{ item.script_price }}</td>
+      <td class="px-6 py-4">{{ item.script_date }}</td>
+
+      <td class="flex items-center px-6 py-4">
+        <button
+          type="button"
+          class="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+        >
+          <app-svg-edit />
+        </button>
+        <button
+          type="button"
+          class="font-medium text-red-600 dark:text-red-500 hover:underline ms-3"
+        >
+          <app-sgv-trash />
+        </button>
+      </td>
+    </tr>
+    }
+  </tbody>
+</table>

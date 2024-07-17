@@ -1,0 +1,97 @@
+<div
+  id="default-carousel"
+  class="relative w-[842px] h-[430px] mx-auto drop-shadow-lg"
+  data-carousel="slide"
+>
+  <!-- Carousel wrapper -->
+  <div class="relative w-[708px] h-[391px] overflow-hidden mx-auto rounded-lg">
+    <!-- Item 1 -->
+    @for (script of scriptList; track script.script_id) {
+    <div class="duration-700 ease-in-out" data-carousel-item>
+      <app-carousel-item [script]="script" />
+    </div>
+    }
+  </div>
+  <!-- Slider indicators -->
+  <div
+    class="absolute z-30 flex -translate-x-1/2 bottom-0 left-1/2 gap-x-1 rtl:space-x-reverse"
+  >
+    <button
+      type="button"
+      class="slider-indicator size-[9px] rounded-full bg-gris-1"
+      aria-label="Slide 1"
+      data-carousel-slide-to="0"
+    ></button>
+    <button
+      type="button"
+      class="slider-indicator size-[9px] rounded-full bg-gris-1"
+      aria-label="Slide 2"
+      data-carousel-slide-to="1"
+    ></button>
+    <button
+      type="button"
+      class="slider-indicator size-[9px] rounded-full bg-gris-1"
+      aria-label="Slide 3"
+      data-carousel-slide-to="2"
+    ></button>
+    <button
+      type="button"
+      class="slider-indicator size-[9px] rounded-full bg-gris-1"
+      aria-label="Slide 4"
+      data-carousel-slide-to="3"
+    ></button>
+  </div>
+  <!-- Slider controls -->
+  <button
+    type="button"
+    class="absolute top-0 start-0 z-30 flex items-center justify-center pt-[153px] pr-8 cursor-pointer group focus:outline-none"
+    data-carousel-prev
+  >
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-light-gray"
+    >
+      <svg
+        class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M5 1 1 5l4 4"
+        />
+      </svg>
+      <span class="sr-only">Previous</span>
+    </span>
+  </button>
+  <button
+    type="button"
+    class="absolute top-0 end-0 z-30 flex items-center justify-cente pl-8 pt-[153px] cursor-pointer group"
+    data-carousel-next
+  >
+    <span
+      class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-light-gray"
+    >
+      <svg
+        class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180"
+        aria-hidden="true"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+        viewBox="0 0 6 10"
+      >
+        <path
+          stroke="currentColor"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 9 4-4-4-4"
+        />
+      </svg>
+      <span class="sr-only">Next</span>
+    </span>
+  </button>
+</div>
